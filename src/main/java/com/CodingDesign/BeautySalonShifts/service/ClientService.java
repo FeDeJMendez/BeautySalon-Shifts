@@ -4,6 +4,7 @@ import com.CodingDesign.BeautySalonShifts.exceptions.ClientExistsException;
 import com.CodingDesign.BeautySalonShifts.exceptions.ClientNotExistsException;
 import com.CodingDesign.BeautySalonShifts.model.Client;
 import com.CodingDesign.BeautySalonShifts.repository.ClientRepository;
+import com.CodingDesign.BeautySalonShifts.repository.ShiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

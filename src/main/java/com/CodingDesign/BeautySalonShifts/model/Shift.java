@@ -1,6 +1,7 @@
 package com.CodingDesign.BeautySalonShifts.model;
 
-/*import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.CodingDesign.BeautySalonShifts.interfaces.URIinterface;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,15 +14,15 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "shifts")*/
-public class Shift {
-
-/*    @Id
+@Table(name = "shifts")
+public class Shift implements URIinterface {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_client", nullable = false)
-    private Client client;*/
+    private Client client;
+
 }

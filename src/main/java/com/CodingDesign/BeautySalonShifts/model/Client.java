@@ -4,6 +4,7 @@ import com.CodingDesign.BeautySalonShifts.interfaces.URIinterface;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -13,10 +14,8 @@ import javax.persistence.*;
 //@Table(name = "clients")
 @Entity
 public class Client extends Person implements URIinterface {
-    
-    @Column
-    private Integer nroCliente;
 
-/*    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-    private List<Shift> shifts;*/
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    private List<Shift> shifts;
+
 }
