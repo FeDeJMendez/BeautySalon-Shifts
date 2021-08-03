@@ -13,6 +13,7 @@ import javax.persistence.*;
 //@Table(name = "clients")
 @Entity
 public class Client extends Person implements URIinterface {
+    
     @Column
     private Integer nroCliente;
 

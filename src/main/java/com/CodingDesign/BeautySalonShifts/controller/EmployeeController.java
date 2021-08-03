@@ -4,6 +4,7 @@ import com.CodingDesign.BeautySalonShifts.config.Conf;
 import com.CodingDesign.BeautySalonShifts.dto.EmployeeDto;
 import com.CodingDesign.BeautySalonShifts.exceptions.EmployeeExistsException;
 import com.CodingDesign.BeautySalonShifts.exceptions.EmployeeNotExistsException;
+import com.CodingDesign.BeautySalonShifts.exceptions.SpecialtyNotExistsException;
 import com.CodingDesign.BeautySalonShifts.model.Employee;
 import com.CodingDesign.BeautySalonShifts.service.EmployeeService;
 import org.modelmapper.ModelMapper;
@@ -30,10 +31,11 @@ public class EmployeeController {
         this.modelMapper = modelMapper;
     }
 
+
     /// ADD NEW ///
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addEmployee (@RequestBody EmployeeDto employeeDto)
-            throws EmployeeExistsException {
+            throws EmployeeExistsException, SpecialtyNotExistsException {
         Employee newEmployee = employeeService.addEmployee(modelMapper.map(employeeDto, Employee.class));
         return ResponseEntity.created(Conf.getLocation(newEmployee)).build();
     }

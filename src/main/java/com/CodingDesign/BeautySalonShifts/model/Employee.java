@@ -1,6 +1,7 @@
 package com.CodingDesign.BeautySalonShifts.model;
 
 import com.CodingDesign.BeautySalonShifts.interfaces.URIinterface;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,12 +15,11 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 public class Employee extends Person implements URIinterface {
-    @Column
-    private Integer nroEmpleado;
 
-    /*@JsonIgnore
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_provision", nullable = false)
-    private Provision provision;*/
+    @JoinColumn(name = "id_specialty")
+    @Builder.Default
+    private Specialty specialty = null;
 
 }

@@ -1,6 +1,7 @@
 package com.CodingDesign.BeautySalonShifts.model;
 
-/*import lombok.AllArgsConstructor;
+import com.CodingDesign.BeautySalonShifts.interfaces.URIinterface;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +14,10 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "provisions")*/
-public class Provision {
+@Table(name = "specialties")
+public class Specialty implements URIinterface {
 
-/*    @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -26,9 +27,9 @@ public class Provision {
     @Column
     private Double amount;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provision")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "specialty")
     private List<Employee> employees;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provision")
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "specialty")
     private List<Shift> shifts;*/
 }
