@@ -4,7 +4,6 @@ import com.CodingDesign.BeautySalonShifts.config.Conf;
 import com.CodingDesign.BeautySalonShifts.dto.ClientDto;
 import com.CodingDesign.BeautySalonShifts.exceptions.ClientExistsException;
 import com.CodingDesign.BeautySalonShifts.exceptions.ClientNotExistsException;
-import com.CodingDesign.BeautySalonShifts.exceptions.ShiftNotExistsException;
 import com.CodingDesign.BeautySalonShifts.model.Client;
 import com.CodingDesign.BeautySalonShifts.service.ClientService;
 import org.modelmapper.ModelMapper;
@@ -16,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
@@ -54,7 +52,8 @@ public class ClientController {
 
     /// GET BY ID ///
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ClientDto> getById (@PathVariable Integer id) throws ClientNotExistsException{
+    public ResponseEntity<ClientDto> getById (@PathVariable Integer id)
+            throws ClientNotExistsException{
         Client client = clientService.getById(id);
         return ResponseEntity.ok(ClientDto.from(client));
     }

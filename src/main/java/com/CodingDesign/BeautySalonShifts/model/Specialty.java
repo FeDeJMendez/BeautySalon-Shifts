@@ -29,7 +29,4 @@ public class Specialty implements URIinterface {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "specialty")
     private List<Employee> employees;
-
-    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "specialty")
-    private List<Shift> shifts;*/
 }

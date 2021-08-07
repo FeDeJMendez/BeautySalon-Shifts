@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -22,4 +23,6 @@ public class Employee extends Person implements URIinterface {
     @Builder.Default
     private Specialty specialty = null;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private List<Shift> shifts;
 }
